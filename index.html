@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLeavePortal</title>
+    <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>SmartLeavePortal</h1>
+        <p>Smart and Simple Leave Management</p>
+    </header>
+
+    <main class="container">
+
+        <!-- HOME -->
+        <section id="homeSection" class="panel">
+            <h2>Welcome!</h2>
+            <p>Choose how you want to continue.</p>
+
+            <div class="button-group">
+                <button type="button" onclick="showSection('userLoginSection')">
+                    User Login
+                </button>
+
+                <button type="button" onclick="showSection('registerSection')">
+                    Register
+                </button>
+
+                <button type="button" onclick="showSection('adminLoginSection')">
+                    Admin Login
+                </button>
+            </div>
+        </section>
+
+        <!-- USER LOGIN -->
+        <section id="userLoginSection" class="panel hidden">
+            <h2>User Login</h2>
+
+            <form id="userLoginForm">
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email"
+                    autocomplete="email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit">Login</button>
+            </form>
+
+            <button type="button" class="secondary"
+                onclick="showSection('homeSection')">
+                Back
+            </button>
+        </section>
+
+        <!-- USER REGISTRATION -->
+        <section id="registerSection" class="panel hidden">
+            <h2>Create User Account</h2>
+
+            <form id="registerForm">
+                <input
+                    type="text"
+                    id="registerUsername"
+                    placeholder="Full Name"
+                    autocomplete="name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="registerRollNumber"
+                    placeholder="Roll Number"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Email"
+                    autocomplete="email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Password (minimum 6 characters)"
+                    minlength="6"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <button type="submit">Register</button>
+            </form>
+
+            <button type="button" class="secondary"
+                onclick="showSection('homeSection')">
+                Back
+            </button>
+        </section>
+
+        <!-- ADMIN LOGIN -->
+        <section id="adminLoginSection" class="panel hidden">
+            <h2>Admin Login</h2>
+
+            <form id="adminLoginForm">
+                <input
+                    type="email"
+                    id="adminEmail"
+                    placeholder="Admin Email"
+                    autocomplete="username"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Admin Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit">Admin Login</button>
+            </form>
+
+            <button type="button" class="secondary"
+                onclick="showSection('homeSection')">
+                Back
+            </button>
+        </section>
+
+        <!-- USER DASHBOARD -->
+        <section id="userDashboard" class="panel hidden">
+            <h2>User Dashboard</h2>
+            <p id="userWelcome"></p>
+
+            <!-- LEAVE BALANCE -->
+            <div class="balance">
+                <p>
+                    Casual Leave:
+                    <strong id="casualBalance">10</strong>
+                </p>
+
+                <p>
+                    Medical Leave:
+                    <strong id="medicalBalance">10</strong>
+                </p>
+            </div>
+
+            <h3>Apply for Leave</h3>
+
+            <p id="leaveBalanceMessage" role="status"></p>
+
+            <form id="leaveForm">
+                <label for="leaveType">Leave Type</label>
+
+                <select id="leaveType" required>
+                    <option value="">Select Leave Type</option>
+                    <option value="casual">Casual Leave</option>
+                    <option value="medical">Medical Leave</option>
+                </select>
+
+                <label for="startDate">Start Date</label>
+                <input
+                    type="date"
+                    id="startDate"
+                    required
+                >
+
+                <label for="endDate">End Date</label>
+                <input
+                    type="date"
+                    id="endDate"
+                    required
+                >
+
+                <textarea
+                    id="leaveReason"
+                    placeholder="Reason for leave"
+                    required
+                ></textarea>
+
+                <button type="submit" id="submitLeaveButton">
+                    Submit Application
+                </button>
+            </form>
+
+            <h3>My Leave Applications</h3>
+            <div id="myLeaves"></div>
+
+            <button type="button" class="secondary" onclick="logout()">
+                Logout
+            </button>
+        </section>
+
+        <!-- ADMIN DASHBOARD -->
+        <section id="adminDashboard" class="panel hidden">
+            <h2>Admin Dashboard</h2>
+            <p>Review student leave applications.</p>
+
+            <button type="button" onclick="loadAllLeaves()">
+                Refresh Applications
+            </button>
+
+            <div id="allLeaves"></div>
+
+            <button type="button" class="secondary" onclick="logout()">
+                Logout
+            </button>
+        </section>
+
+        <p id="message" role="status" aria-live="polite"></p>
+
+    </main>
+
+    <footer>
+        <p>SmartLeavePortal &copy; 2026</p>
+    </footer>
+
+    <script src="public/app.js"></script>
+</body>
+</html>
+
