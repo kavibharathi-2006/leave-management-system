@@ -1,0 +1,27 @@
+
+{
+  "name": "smartleaveportal",
+  "version": "1.0.0",
+  "description": "A web-based leave management system using Node.js, Express, and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [
+    "leave-management",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Kavibharathi S",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.11.4"
+  }
+}

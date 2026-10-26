@@ -1,0 +1,196 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+.header {
+    background: #173b6c;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #dbeafe;
+}
+
+.container {
+    width: 92%;
+    max-width: 850px;
+    margin: 35px auto;
+}
+
+.panel {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+    margin-bottom: 22px;
+}
+
+.panel h2 {
+    color: #173b6c;
+    margin-bottom: 18px;
+}
+
+.panel h3 {
+    margin: 25px 0 15px;
+    color: #173b6c;
+}
+
+.panel p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.secondary {
+    background: #64748b;
+    margin-top: 15px;
+}
+
+.secondary:hover {
+    background: #475569;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 15px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: -8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.balance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 20px 0;
+}
+
+.balance p {
+    flex: 1;
+    min-width: 180px;
+    padding: 18px;
+    border-radius: 9px;
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+}
+
+.leave-card {
+    border: 1px solid #dbe3ee;
+    border-radius: 9px;
+    padding: 16px;
+    margin: 14px 0;
+    overflow-wrap: anywhere;
+}
+
+.leave-card p {
+    margin: 7px 0;
+}
+
+.status {
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+}
