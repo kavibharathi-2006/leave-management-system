@@ -1,0 +1,36 @@
+name: Deploy Leave Management Website
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create redirect page
+        run: |
+          mkdir -p public-pages
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=https://leave-management-system-1-ftms.onrender.com"><title>SmartLeavePortal</title></head><body><p>Opening SmartLeavePortal...</p><a href="https://leave-management-system-1-ftms.onrender.com">Open Website</a></body></html>' > public-pages/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public-pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
